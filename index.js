@@ -101,28 +101,67 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
-
-/* kodlar buraya */
-
+enkucuk=sayilar[0];
+ for (let i = 0 ; i<sayilar.length ; i++){
+  if (sayilar[i]<enkucuk){
+    enkucuk = sayilar[i];
+ }
+}console.log(enkucuk);
+enbuyuk=sayilar[0];
+for (let i = 0 ; i<sayilar.length ; i++){
+  if (sayilar[i]>enbuyuk){
+    enbuyuk = sayilar[i];
+ }
+}console.log(enbuyuk);
 // 3b çözümü:
-
-/* kodlar buraya */
+ucetambolunenler=[];
+sayilar.forEach(sayi=>{
+  if (sayi%3===0 )
+  {ucetambolunenler.push(sayi)
+  }
+});
+console.log(ucetambolunenler);
 
 // 3c çözümü:
 
-/* kodlar buraya */
+ucebolunenlerintoplami = ucetambolunenler.reduce(( toplam,sayi ) => toplam+sayi,0);
+console.log(ucebolunenlerintoplami);
 
 // 3d çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar = sayilar.filter(sayi => sayi<500);
+console.log(besyuzdenkucuksayilar);
 
 // 3e çözümü
 
-/* kodlar buraya */
+siralisayilar = besyuzdenkucuksayilar.sort((a , b)=> a-b);
+console.log(siralisayilar);
 
 // 3f çözümü
+let tekrarSayisi = {};
+tekraredensayilar = [];
 
-/* kodlar buraya */
+// 1. Döngü: Sayıların kaç kere tekrar edildiğini bulduk
+for (let i = 0; i < sayilar.length; i++) {
+  let sayi = sayilar[i];
+  if (tekrarSayisi[sayi]) {
+    tekrarSayisi[sayi]++;
+  } else {
+    tekrarSayisi[sayi] = 1;
+  }
+}
+
+// 2. Döngü: Tekrar eden sayıları ve kaç kez tekrarlandığını içeren stringleri oluşturduk
+for (let i = 0; i < sayilar.length; i++) {
+  let sayi = sayilar[i];
+  if (tekrarSayisi[sayi] > 1 && !tekraredensayilar.includes(`${sayi} sayısı ${tekrarSayisi[sayi]} kere tekrar edilmiştir`)) {
+    tekraredensayilar.push(`${sayi} sayısı ${tekrarSayisi[sayi]} kere tekrar edilmiştir`);
+  }
+}
+
+console.log(tekraredensayilar);
+console.log(sayilar.length);
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
